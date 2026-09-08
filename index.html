@@ -1,74 +1,559 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kabsfootpr — KFP</title>
+
 <style>
-:root{--bg:#050505;--card:#101010;--card2:#151515;--line:#292929;--text:#f5f5f5;--muted:#a6a6a6;--accent:#27e36b}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif}
-header{position:sticky;top:0;z-index:10;background:#050505ee;backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:12px 5%;display:flex;justify-content:space-between;align-items:center}
-.brand{display:flex;align-items:center;gap:10px}.brand img{width:43px;height:43px;border-radius:8px;object-fit:cover}.brand b{font-size:19px}
-nav a{color:#bbb;text-decoration:none;margin-left:18px;font-size:14px}nav a:hover{color:#fff}
-.lang{margin-left:18px;background:#111;border:1px solid #333;color:#fff;border-radius:8px;padding:8px 10px}
-.hero{max-width:1150px;margin:auto;padding:60px 5% 36px}.eyebrow{font-size:11px;letter-spacing:.16em;font-weight:800;color:#aaa}
-h1{font-size:clamp(42px,7vw,72px);line-height:.95;margin:15px 0 20px}.hero p{color:var(--muted);max-width:740px;line-height:1.65}
-.wrap{max-width:1150px;margin:auto;padding:0 5% 70px}.section-title{display:flex;justify-content:space-between;align-items:end;gap:15px;flex-wrap:wrap}
-.filters{display:flex;gap:8px;overflow:auto;padding:16px 0 10px;scrollbar-width:none}.filters button{white-space:nowrap;background:var(--card);color:#ddd;border:1px solid var(--line);border-radius:10px;padding:10px 13px}.filters button.active{background:#fff;color:#000;border-color:#fff}
-.notice{border:1px solid #333;background:#0e0e0e;padding:14px;border-radius:12px;color:#bdbdbd;line-height:1.55;font-size:13px;margin:15px 0 24px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:15px}.match{background:linear-gradient(180deg,#121212,#0b0b0b);border:1px solid var(--line);border-radius:16px;padding:18px}
-.meta{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}.teams{font-size:19px;font-weight:850;margin:16px 0 12px}.bar{height:1px;background:var(--line);margin:12px 0}
-.prob{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.prob div{background:var(--card2);padding:9px;border-radius:8px;text-align:center}.prob strong{display:block;font-size:17px}.prob span{font-size:10px;color:var(--muted)}
-.pick{font-size:20px;font-weight:900;margin-top:14px}.score{color:#ccc;margin:7px 0 12px}.tag{display:inline-block;border:1px solid #3a3a3a;border-radius:8px;padding:5px 8px;font-size:11px;color:#ddd}
-.method{margin-top:44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:13px}.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:17px}.box p{color:var(--muted);line-height:1.55;font-size:13px}
-.vip{margin-top:35px;background:#0e0e0e;border:1px solid #333;border-radius:16px;padding:22px}.vip button{background:#fff;color:#000;border:0;border-radius:9px;padding:10px 14px;font-weight:800}
-footer{border-top:1px solid var(--line);padding:26px 5%;color:#888;font-size:12px;line-height:1.6}@media(max-width:700px){nav a{display:none}}
+:root{
+  --bg:#050505;
+  --card:#111111;
+  --card2:#171717;
+  --white:#ffffff;
+  --muted:#9b9b9b;
+  --green:#19d66b;
+  --border:#252525;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  background:var(--bg);
+  color:var(--white);
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:rgba(5,5,5,.96);
+  border-bottom:1px solid var(--border);
+  padding:15px 5%;
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:900;
+  font-size:22px;
+}
+
+.logo-box{
+  width:42px;
+  height:42px;
+  background:#000;
+  border:1px solid #333;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  font-weight:900;
+}
+
+.logo-box span{color:white}
+
+.logo small{
+  display:block;
+  color:var(--green);
+  font-size:9px;
+  margin-top:2px;
+}
+
+.controls{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+button{
+  border:0;
+  cursor:pointer;
+}
+
+.lang{
+  background:#171717;
+  color:white;
+  border:1px solid #303030;
+  border-radius:8px;
+  padding:8px 11px;
+}
+
+.vip{
+  background:var(--green);
+  color:#000;
+  font-weight:800;
+  padding:9px 14px;
+  border-radius:8px;
+}
+
+.hero{
+  max-width:1200px;
+  margin:35px auto 25px;
+  padding:0 5%;
+}
+
+.hero h1{
+  font-size:clamp(30px,6vw,58px);
+  line-height:1;
+  margin-bottom:12px;
+}
+
+.hero h1 span{color:var(--green)}
+
+.hero p{
+  color:var(--muted);
+  max-width:650px;
+  line-height:1.6;
+}
+
+.notice{
+  margin-top:20px;
+  padding:13px 15px;
+  border:1px solid #2b2b2b;
+  background:#0d0d0d;
+  border-radius:10px;
+  color:#aaa;
+  font-size:13px;
+}
+
+main{
+  max-width:1200px;
+  margin:auto;
+  padding:0 5% 50px;
+}
+
+.section-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:30px 0 14px;
+}
+
+.section-title h2{font-size:22px}
+
+.filters{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding-bottom:8px;
+}
+
+.filter{
+  white-space:nowrap;
+  padding:9px 13px;
+  background:#111;
+  color:#bbb;
+  border:1px solid #292929;
+  border-radius:20px;
+}
+
+.filter.active{
+  background:var(--green);
+  color:#000;
+  border-color:var(--green);
+  font-weight:800;
+}
+
+.matches{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+  gap:15px;
+}
+
+.match{
+  background:linear-gradient(145deg,#141414,#0d0d0d);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:18px;
+}
+
+.competition{
+  color:var(--green);
+  font-size:12px;
+  font-weight:800;
+  margin-bottom:10px;
+}
+
+.date{
+  color:#777;
+  font-size:12px;
+  margin-bottom:15px;
+}
+
+.teams{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-bottom:18px;
+}
+
+.team{
+  width:43%;
+  text-align:center;
+  font-weight:800;
+}
+
+.vs{
+  color:#666;
+  font-size:12px;
+}
+
+.probabilities{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:6px;
+  margin-bottom:15px;
+}
+
+.prob{
+  background:#191919;
+  padding:9px 5px;
+  text-align:center;
+  border-radius:8px;
+}
+
+.prob b{
+  display:block;
+  font-size:16px;
+  color:white;
+}
+
+.prob span{
+  color:#777;
+  font-size:10px;
+}
+
+.recommendation{
+  border-left:3px solid var(--green);
+  background:#0b1a11;
+  padding:11px;
+  margin-bottom:13px;
+}
+
+.recommendation small{
+  color:#888;
+  display:block;
+  margin-bottom:4px;
+}
+
+.recommendation strong{color:var(--green)}
+
+.details{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  color:#aaa;
+  font-size:12px;
+}
+
+.detail{
+  background:#161616;
+  padding:9px;
+  border-radius:7px;
+}
+
+.score{
+  margin-top:14px;
+  padding-top:13px;
+  border-top:1px solid #242424;
+  color:#aaa;
+  font-size:13px;
+}
+
+.score strong{color:white}
+
+.vip-section{
+  margin-top:35px;
+  background:linear-gradient(135deg,#111,#07140d);
+  border:1px solid #234b34;
+  border-radius:15px;
+  padding:25px;
+}
+
+.vip-section h2{margin-bottom:8px}
+
+.vip-section p{
+  color:#999;
+  line-height:1.5;
+  margin-bottom:15px;
+}
+
+footer{
+  border-top:1px solid var(--border);
+  padding:25px 5%;
+  text-align:center;
+  color:#666;
+  font-size:12px;
+}
+
+@media(max-width:600px){
+  header{padding:12px 4%}
+  .logo{font-size:18px}
+  .vip{padding:8px 10px}
+  .hero{margin-top:28px}
+  .details{grid-template-columns:1fr}
+}
 </style>
 </head>
+
 <body>
+
 <header>
-<div class="brand"><img src="logo-kfp.png" alt="KFP"><b>Kabsfootpr</b></div>
-<div><nav style="display:inline"><a href="#matches" data-fr="Matchs" data-en="Matches">Matchs</a><a href="#leagues" data-fr="Ligues" data-en="Leagues">Ligues</a><a href="#method" data-fr="Méthode" data-en="Method">Méthode</a><a href="#vip">VIP</a></nav><button class="lang" id="lang">FR / EN</button></div>
+  <div class="nav">
+
+    <div class="logo">
+      <div class="logo-box">
+        <span>KFP</span>
+      </div>
+      <div>
+        Kabsfootpr
+        <small>FOOTBALL ANALYSIS</small>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="lang" onclick="changeLanguage()">🇫🇷 FR</button>
+      <button class="vip" onclick="showVIP()">VIP 👑</button>
+    </div>
+
+  </div>
 </header>
+
 <section class="hero">
-<div class="eyebrow">KFP • FOOTBALL DATA & PRONOSTICS</div>
-<h1 data-fr="Pas de feeling.<br>Des données." data-en="No feeling.<br>Just data.">Pas de feeling.<br>Des données.</h1>
-<p data-fr="Des analyses statistiques structurées, basées sur des données vérifiables. KFP ne promet jamais un résultat certain : il mesure, compare et sélectionne." data-en="Structured statistical analysis based on verifiable data. KFP never promises a certain result: it measures, compares and selects.">Des analyses statistiques structurées, basées sur des données vérifiables. KFP ne promet jamais un résultat certain : il mesure, compare et sélectionne.</p>
+
+  <h1>
+    <span>KFP</span> Football
+  </h1>
+
+  <p>
+    Analyses football basées sur les données, les statistiques
+    et le contexte réel des rencontres.
+  </p>
+
+  <div class="notice">
+    ⚠️ Les exemples affichés ici servent uniquement à présenter
+    l'interface. KFP ne présente pas de données fictives comme des
+    analyses réelles.
+  </div>
+
 </section>
-<main class="wrap">
-<section id="matches">
-<div class="section-title"><div><h2 data-fr="Matchs du jour" data-en="Today's matches">Matchs du jour</h2><div style="color:#888;font-size:12px">Prototype • données à connecter en temps réel</div></div></div>
-<div class="notice" data-fr="La version finale récupérera automatiquement les vrais matchs et leurs données. Si 10 matchs ne passent pas les critères KFP, le site n'en inventera pas pour remplir un quota." data-en="The final version will automatically retrieve real fixtures and their data. If 10 matches do not meet KFP criteria, the site will not invent matches just to fill a quota.">La version finale récupérera automatiquement les vrais matchs et leurs données. Si 10 matchs ne passent pas les critères KFP, le site n'en inventera pas pour remplir un quota.</div>
-<div class="grid">
-<article class="match"><div class="meta"><span>Premier League</span><span>15:00</span></div><div class="teams">Arsenal <span style="color:#777">vs</span> Chelsea</div><span class="tag" data-fr="Données à calculer" data-en="Data pending">Données à calculer</span><div class="bar"></div><div class="prob"><div><strong>—</strong><span data-fr="Victoire Arsenal" data-en="Arsenal win">Victoire Arsenal</span></div><div><strong>—</strong><span data-fr="Nul" data-en="Draw">Nul</span></div><div><strong>—</strong><span data-fr="Victoire Chelsea" data-en="Chelsea win">Victoire Chelsea</span></div></div><div class="pick" data-fr="Pronostic : —" data-en="Prediction: —">Pronostic : —</div><div class="score" data-fr="Scores exacts : —" data-en="Exact scores: —">Scores exacts : —</div></article>
-<article class="match"><div class="meta"><span>LaLiga</span><span>18:30</span></div><div class="teams">Valence <span style="color:#777">vs</span> FC Barcelone</div><span class="tag" data-fr="Données à calculer" data-en="Data pending">Données à calculer</span><div class="bar"></div><div class="prob"><div><strong>—</strong><span data-fr="Victoire Valence" data-en="Valencia win">Victoire Valence</span></div><div><strong>—</strong><span data-fr="Nul" data-en="Draw">Nul</span></div><div><strong>—</strong><span data-fr="Victoire Barcelone" data-en="Barcelona win">Victoire Barcelone</span></div></div><div class="pick" data-fr="Pronostic : —" data-en="Prediction: —">Pronostic : —</div><div class="score" data-fr="Scores exacts : —" data-en="Exact scores: —">Scores exacts : —</div></article>
-</div>
-</section>
-<section id="leagues" style="margin-top:45px"><h2 data-fr="Ligues & compétitions" data-en="Leagues & competitions">Ligues & compétitions</h2>
-<div class="filters">
-<button class="active">⚽ <span data-fr="Tout le football" data-en="All football">Tout le football</span></button><button>🇫🇷 Ligue 1</button><button>🇮🇹 Serie A</button><button>🇪🇸 LaLiga</button><button>🇩🇪 Bundesliga</button><button>🏴 Premier League</button><button>🇳🇱 Eredivisie</button><button>🇹🇷 Turquie</button><button>🇳🇴 Norvège</button><button>🇧🇪 Jupiler Pro League</button><button>🏆 Ligue des Champions</button><button>🏆 Ligue des Champions féminine</button><button>🌍 Coupe du Monde</button><button>🌍 CAN</button><button>🏆 FA Cup</button><button>🏆 Coupe de France</button><button>🏆 Copa del Rey</button><button>🏆 Coppa Italia</button>
-</div>
-</section>
-<section id="method"><h2 style="margin-top:45px" data-fr="Méthode KFP" data-en="KFP method">Méthode KFP</h2>
-<div class="method">
-<div class="box"><b data-fr="Données" data-en="Data">Données</b><p data-fr="Forme, buts, domicile/extérieur, classement, calendrier, absences, blessures, suspensions, cartons rouges, compositions probables, météo, terrain et contexte." data-en="Form, goals, home/away, standings, schedule, absences, injuries, suspensions, red cards, probable lineups, weather, pitch and context.">Forme, buts, domicile/extérieur, classement, calendrier, absences, blessures, suspensions, cartons rouges, compositions probables, météo, terrain et contexte.</p></div>
-<div class="box"><b data-fr="Calcul" data-en="Calculation">Calcul</b><p data-fr="Règles statistiques fixes et reproductibles. Pas d'intuition et pas de chiffres inventés." data-en="Fixed, reproducible statistical rules. No intuition and no invented figures.">Règles statistiques fixes et reproductibles. Pas d'intuition et pas de chiffres inventés.</p></div>
-<div class="box"><b data-fr="Sélection" data-en="Selection">Sélection</b><p data-fr="Un match doit satisfaire les critères de qualité KFP avant d'être recommandé." data-en="A match must meet KFP quality criteria before being recommended.">Un match doit satisfaire les critères de qualité KFP avant d'être recommandé.</p></div>
-<div class="box"><b data-fr="Contrôle" data-en="Tracking">Contrôle</b><p data-fr="Les résultats sont conservés pour mesurer la performance réelle du système dans le temps." data-en="Results are recorded to measure the system's real performance over time.">Les résultats sont conservés pour mesurer la performance réelle du système dans le long run.</p></div>
-</div></section>
-<section id="vip" class="vip"><h2>KFP VIP 👑</h2><p data-fr="Une future formule premium pour accéder à davantage d'analyses et de statistiques, sans promesse de gains garantis." data-en="A future premium plan for access to more analyses and statistics, with no guarantee of winnings.">Une future formule premium pour accéder à davantage d'analyses et de statistiques, sans promesse de gains garantis.</p><button data-fr="Bientôt disponible" data-en="Coming soon">Bientôt disponible</button></section>
+
+<main>
+
+  <div class="section-title">
+    <h2>Matchs du jour</h2>
+  </div>
+
+  <div class="filters">
+
+    <button class="filter active">Tout</button>
+    <button class="filter">Premier League</button>
+    <button class="filter">LaLiga</button>
+    <button class="filter">Serie A</button>
+    <button class="filter">Bundesliga</button>
+    <button class="filter">Ligue 1</button>
+    <button class="filter">Eredivisie</button>
+    <button class="filter">Turquie</button>
+    <button class="filter">Norvège</button>
+    <button class="filter">Jupiler Pro League</button>
+    <button class="filter">Champions League</button>
+
+  </div>
+
+  <div class="matches">
+
+    <article class="match">
+
+      <div class="competition">PREMIER LEAGUE</div>
+
+      <div class="date">
+        Exemple d'interface • Données réelles à connecter
+      </div>
+
+      <div class="teams">
+        <div class="team">Arsenal</div>
+        <div class="vs">VS</div>
+        <div class="team">Chelsea</div>
+      </div>
+
+      <div class="probabilities">
+        <div class="prob">
+          <b>--%</b>
+          <span>ARSENAL</span>
+        </div>
+
+        <div class="prob">
+          <b>--%</b>
+          <span>NUL</span>
+        </div>
+
+        <div class="prob">
+          <b>--%</b>
+          <span>CHELSEA</span>
+        </div>
+      </div>
+
+      <div class="recommendation">
+        <small>PRONOSTIC KFP</small>
+        <strong>En attente des données</strong>
+      </div>
+
+      <div class="details">
+        <div class="detail">🩹 Blessés : —</div>
+        <div class="detail">🟥 Suspensions : —</div>
+        <div class="detail">📋 Compositions : —</div>
+        <div class="detail">🌦️ Météo : —</div>
+        <div class="detail">🏆 Enjeu : —</div>
+        <div class="detail">📊 Forme : —</div>
+      </div>
+
+      <div class="score">
+        🎯 Scores exacts proposés :
+        <strong>—</strong>
+      </div>
+
+    </article>
+
+    <article class="match">
+
+      <div class="competition">LIGUE 1</div>
+
+      <div class="date">
+        Exemple d'interface • Données réelles à connecter
+      </div>
+
+      <div class="teams">
+        <div class="team">Paris FC</div>
+        <div class="vs">VS</div>
+        <div class="team">Lyon</div>
+      </div>
+
+      <div class="probabilities">
+        <div class="prob">
+          <b>--%</b>
+          <span>ÉQUIPE 1</span>
+        </div>
+
+        <div class="prob">
+          <b>--%</b>
+          <span>NUL</span>
+        </div>
+
+        <div class="prob">
+          <b>--%</b>
+          <span>ÉQUIPE 2</span>
+        </div>
+      </div>
+
+      <div class="recommendation">
+        <small>PRONOSTIC KFP</small>
+        <strong>En attente des données</strong>
+      </div>
+
+      <div class="details">
+        <div class="detail">🩹 Blessés : —</div>
+        <div class="detail">🟥 Suspensions : —</div>
+        <div class="detail">📋 Compositions : —</div>
+        <div class="detail">🌦️ Météo : —</div>
+        <div class="detail">🏆 Enjeu : —</div>
+        <div class="detail">📊 Forme : —</div>
+      </div>
+
+      <div class="score">
+        🎯 Scores exacts proposés :
+        <strong>—</strong>
+      </div>
+
+    </article>
+
+  </div>
+
+  <section class="vip-section">
+
+    <h2>👑 KFP VIP</h2>
+
+    <p>
+      Accès aux analyses approfondies, statistiques avancées,
+      historique des performances et fonctionnalités premium.
+    </p>
+
+    <button class="vip" onclick="showVIP()">
+      Découvrir KFP VIP
+    </button>
+
+  </section>
+
 </main>
-<footer data-fr="Kabsfootpr / KFP — Les statistiques ne garantissent jamais le résultat d'un match. Les paris sportifs comportent un risque." data-en="Kabsfootpr / KFP — Statistics never guarantee a match result. Sports betting involves risk.">Kabsfootpr / KFP — Les statistiques ne garantissent jamais le résultat d'un match. Les paris sportifs comportent un risque.</footer>
+
+<footer>
+  © 2026 Kabsfootpr — KFP Football Analysis
+</footer>
+
 <script>
-let lang="fr";
-const btn=document.getElementById("lang");
-function setLang(l){
- lang=l; document.documentElement.lang=l;
- document.querySelectorAll("[data-fr]").forEach(el=>{
-   const v=el.getAttribute("data-"+l);
-   if(v!==null) el.innerHTML=v;
- });
+
+let english = false;
+
+function changeLanguage(){
+
+  english = !english;
+
+  const button = document.querySelector(".lang");
+
+  if(english){
+
+    button.innerText = "🇬🇧 EN";
+
+    document.querySelector(".hero h1").innerHTML =
+      '<span>KFP</span> Football';
+
+    document.querySelector(".hero p").innerText =
+      "Football analysis based on data, statistics and real match context.";
+
+    document.querySelector(".section-title h2").innerText =
+      "Today's matches";
+
+    document.querySelector(".vip-section h2").innerText =
+      "👑 KFP VIP";
+
+  }else{
+
+    button.innerText = "🇫🇷 FR";
+
+    document.querySelector(".hero h1").innerHTML =
+      '<span>KFP</span> Football';
+
+    document.querySelector(".hero p").innerText =
+      "Analyses football basées sur les données, les statistiques et le contexte réel des rencontres.";
+
+    document.querySelector(".section-title h2").innerText =
+      "Matchs du jour";
+
+    document.querySelector(".vip-section h2").innerText =
+      "👑 KFP VIP";
+  }
 }
-btn.onclick=()=>setLang(lang==="fr"?"en":"fr");
+
+function showVIP(){
+  alert(
+    "KFP VIP arrive prochainement.\\n\\n" +
+    "Analyses approfondies • Statistiques avancées • Historique des performances"
+  );
+}
+
 </script>
-</body></html>
+
+</body>
+ </html>
