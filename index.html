@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kabsfootpr — KFP</title>
+<style>
+:root{--bg:#050505;--card:#101010;--card2:#151515;--line:#292929;--text:#f5f5f5;--muted:#a6a6a6;--accent:#27e36b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif}
+header{position:sticky;top:0;z-index:10;background:#050505ee;backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:12px 5%;display:flex;justify-content:space-between;align-items:center}
+.brand{display:flex;align-items:center;gap:10px}.brand img{width:43px;height:43px;border-radius:8px;object-fit:cover}.brand b{font-size:19px}
+nav a{color:#bbb;text-decoration:none;margin-left:18px;font-size:14px}nav a:hover{color:#fff}
+.lang{margin-left:18px;background:#111;border:1px solid #333;color:#fff;border-radius:8px;padding:8px 10px}
+.hero{max-width:1150px;margin:auto;padding:60px 5% 36px}.eyebrow{font-size:11px;letter-spacing:.16em;font-weight:800;color:#aaa}
+h1{font-size:clamp(42px,7vw,72px);line-height:.95;margin:15px 0 20px}.hero p{color:var(--muted);max-width:740px;line-height:1.65}
+.wrap{max-width:1150px;margin:auto;padding:0 5% 70px}.section-title{display:flex;justify-content:space-between;align-items:end;gap:15px;flex-wrap:wrap}
+.filters{display:flex;gap:8px;overflow:auto;padding:16px 0 10px;scrollbar-width:none}.filters button{white-space:nowrap;background:var(--card);color:#ddd;border:1px solid var(--line);border-radius:10px;padding:10px 13px}.filters button.active{background:#fff;color:#000;border-color:#fff}
+.notice{border:1px solid #333;background:#0e0e0e;padding:14px;border-radius:12px;color:#bdbdbd;line-height:1.55;font-size:13px;margin:15px 0 24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:15px}.match{background:linear-gradient(180deg,#121212,#0b0b0b);border:1px solid var(--line);border-radius:16px;padding:18px}
+.meta{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}.teams{font-size:19px;font-weight:850;margin:16px 0 12px}.bar{height:1px;background:var(--line);margin:12px 0}
+.prob{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.prob div{background:var(--card2);padding:9px;border-radius:8px;text-align:center}.prob strong{display:block;font-size:17px}.prob span{font-size:10px;color:var(--muted)}
+.pick{font-size:20px;font-weight:900;margin-top:14px}.score{color:#ccc;margin:7px 0 12px}.tag{display:inline-block;border:1px solid #3a3a3a;border-radius:8px;padding:5px 8px;font-size:11px;color:#ddd}
+.method{margin-top:44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:13px}.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:17px}.box p{color:var(--muted);line-height:1.55;font-size:13px}
+.vip{margin-top:35px;background:#0e0e0e;border:1px solid #333;border-radius:16px;padding:22px}.vip button{background:#fff;color:#000;border:0;border-radius:9px;padding:10px 14px;font-weight:800}
+footer{border-top:1px solid var(--line);padding:26px 5%;color:#888;font-size:12px;line-height:1.6}@media(max-width:700px){nav a{display:none}}
+</style>
+</head>
+<body>
+<header>
+<div class="brand"><img src="logo-kfp.png" alt="KFP"><b>Kabsfootpr</b></div>
+<div><nav style="display:inline"><a href="#matches" data-fr="Matchs" data-en="Matches">Matchs</a><a href="#leagues" data-fr="Ligues" data-en="Leagues">Ligues</a><a href="#method" data-fr="Méthode" data-en="Method">Méthode</a><a href="#vip">VIP</a></nav><button class="lang" id="lang">FR / EN</button></div>
+</header>
+<section class="hero">
+<div class="eyebrow">KFP • FOOTBALL DATA & PRONOSTICS</div>
+<h1 data-fr="Pas de feeling.<br>Des données." data-en="No feeling.<br>Just data.">Pas de feeling.<br>Des données.</h1>
+<p data-fr="Des analyses statistiques structurées, basées sur des données vérifiables. KFP ne promet jamais un résultat certain : il mesure, compare et sélectionne." data-en="Structured statistical analysis based on verifiable data. KFP never promises a certain result: it measures, compares and selects.">Des analyses statistiques structurées, basées sur des données vérifiables. KFP ne promet jamais un résultat certain : il mesure, compare et sélectionne.</p>
+</section>
+<main class="wrap">
+<section id="matches">
+<div class="section-title"><div><h2 data-fr="Matchs du jour" data-en="Today's matches">Matchs du jour</h2><div style="color:#888;font-size:12px">Prototype • données à connecter en temps réel</div></div></div>
+<div class="notice" data-fr="La version finale récupérera automatiquement les vrais matchs et leurs données. Si 10 matchs ne passent pas les critères KFP, le site n'en inventera pas pour remplir un quota." data-en="The final version will automatically retrieve real fixtures and their data. If 10 matches do not meet KFP criteria, the site will not invent matches just to fill a quota.">La version finale récupérera automatiquement les vrais matchs et leurs données. Si 10 matchs ne passent pas les critères KFP, le site n'en inventera pas pour remplir un quota.</div>
+<div class="grid">
+<article class="match"><div class="meta"><span>Premier League</span><span>15:00</span></div><div class="teams">Arsenal <span style="color:#777">vs</span> Chelsea</div><span class="tag" data-fr="Données à calculer" data-en="Data pending">Données à calculer</span><div class="bar"></div><div class="prob"><div><strong>—</strong><span data-fr="Victoire Arsenal" data-en="Arsenal win">Victoire Arsenal</span></div><div><strong>—</strong><span data-fr="Nul" data-en="Draw">Nul</span></div><div><strong>—</strong><span data-fr="Victoire Chelsea" data-en="Chelsea win">Victoire Chelsea</span></div></div><div class="pick" data-fr="Pronostic : —" data-en="Prediction: —">Pronostic : —</div><div class="score" data-fr="Scores exacts : —" data-en="Exact scores: —">Scores exacts : —</div></article>
+<article class="match"><div class="meta"><span>LaLiga</span><span>18:30</span></div><div class="teams">Valence <span style="color:#777">vs</span> FC Barcelone</div><span class="tag" data-fr="Données à calculer" data-en="Data pending">Données à calculer</span><div class="bar"></div><div class="prob"><div><strong>—</strong><span data-fr="Victoire Valence" data-en="Valencia win">Victoire Valence</span></div><div><strong>—</strong><span data-fr="Nul" data-en="Draw">Nul</span></div><div><strong>—</strong><span data-fr="Victoire Barcelone" data-en="Barcelona win">Victoire Barcelone</span></div></div><div class="pick" data-fr="Pronostic : —" data-en="Prediction: —">Pronostic : —</div><div class="score" data-fr="Scores exacts : —" data-en="Exact scores: —">Scores exacts : —</div></article>
+</div>
+</section>
+<section id="leagues" style="margin-top:45px"><h2 data-fr="Ligues & compétitions" data-en="Leagues & competitions">Ligues & compétitions</h2>
+<div class="filters">
+<button class="active">⚽ <span data-fr="Tout le football" data-en="All football">Tout le football</span></button><button>🇫🇷 Ligue 1</button><button>🇮🇹 Serie A</button><button>🇪🇸 LaLiga</button><button>🇩🇪 Bundesliga</button><button>🏴 Premier League</button><button>🇳🇱 Eredivisie</button><button>🇹🇷 Turquie</button><button>🇳🇴 Norvège</button><button>🇧🇪 Jupiler Pro League</button><button>🏆 Ligue des Champions</button><button>🏆 Ligue des Champions féminine</button><button>🌍 Coupe du Monde</button><button>🌍 CAN</button><button>🏆 FA Cup</button><button>🏆 Coupe de France</button><button>🏆 Copa del Rey</button><button>🏆 Coppa Italia</button>
+</div>
+</section>
+<section id="method"><h2 style="margin-top:45px" data-fr="Méthode KFP" data-en="KFP method">Méthode KFP</h2>
+<div class="method">
+<div class="box"><b data-fr="Données" data-en="Data">Données</b><p data-fr="Forme, buts, domicile/extérieur, classement, calendrier, absences, blessures, suspensions, cartons rouges, compositions probables, météo, terrain et contexte." data-en="Form, goals, home/away, standings, schedule, absences, injuries, suspensions, red cards, probable lineups, weather, pitch and context.">Forme, buts, domicile/extérieur, classement, calendrier, absences, blessures, suspensions, cartons rouges, compositions probables, météo, terrain et contexte.</p></div>
+<div class="box"><b data-fr="Calcul" data-en="Calculation">Calcul</b><p data-fr="Règles statistiques fixes et reproductibles. Pas d'intuition et pas de chiffres inventés." data-en="Fixed, reproducible statistical rules. No intuition and no invented figures.">Règles statistiques fixes et reproductibles. Pas d'intuition et pas de chiffres inventés.</p></div>
+<div class="box"><b data-fr="Sélection" data-en="Selection">Sélection</b><p data-fr="Un match doit satisfaire les critères de qualité KFP avant d'être recommandé." data-en="A match must meet KFP quality criteria before being recommended.">Un match doit satisfaire les critères de qualité KFP avant d'être recommandé.</p></div>
+<div class="box"><b data-fr="Contrôle" data-en="Tracking">Contrôle</b><p data-fr="Les résultats sont conservés pour mesurer la performance réelle du système dans le temps." data-en="Results are recorded to measure the system's real performance over time.">Les résultats sont conservés pour mesurer la performance réelle du système dans le long run.</p></div>
+</div></section>
+<section id="vip" class="vip"><h2>KFP VIP 👑</h2><p data-fr="Une future formule premium pour accéder à davantage d'analyses et de statistiques, sans promesse de gains garantis." data-en="A future premium plan for access to more analyses and statistics, with no guarantee of winnings.">Une future formule premium pour accéder à davantage d'analyses et de statistiques, sans promesse de gains garantis.</p><button data-fr="Bientôt disponible" data-en="Coming soon">Bientôt disponible</button></section>
+</main>
+<footer data-fr="Kabsfootpr / KFP — Les statistiques ne garantissent jamais le résultat d'un match. Les paris sportifs comportent un risque." data-en="Kabsfootpr / KFP — Statistics never guarantee a match result. Sports betting involves risk.">Kabsfootpr / KFP — Les statistiques ne garantissent jamais le résultat d'un match. Les paris sportifs comportent un risque.</footer>
+<script>
+let lang="fr";
+const btn=document.getElementById("lang");
+function setLang(l){
+ lang=l; document.documentElement.lang=l;
+ document.querySelectorAll("[data-fr]").forEach(el=>{
+   const v=el.getAttribute("data-"+l);
+   if(v!==null) el.innerHTML=v;
+ });
+}
+btn.onclick=()=>setLang(lang==="fr"?"en":"fr");
+</script>
+</body></html>
